@@ -26,5 +26,23 @@ describe('Thermostat', function(){
       }
       expect(thermostat.temperature()).toEqual(10)
     });
+
+    it('is in power saving mode by default', function(){
+      expect(thermostat.isPowerSaving()).toBeTruthy()
+    });
+
+    it('can turn off power saving mode', function(){
+      thermostat.powerSavingOff()
+      expect(thermostat.isPowerSaving()).toBeFalsy()
+    });
+
+    it('can turn on power saving mode', function(){
+      thermostat.powerSavingOff()
+      thermostat.powerSavingOn()
+      expect(thermostat.isPowerSaving()).toBeTruthy()
+    });
+
+    // if power saving = on, max temp is 25 degs
+    // if power saving = off, max temp is 32 degs
   });
 }); 
