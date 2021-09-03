@@ -1,7 +1,8 @@
 class Thermostat {
   
   constructor(){
-    this.temp = 20
+    this.DEFAULT_TEMP = 20
+    this.temp = this.DEFAULT_TEMP
     this.MIN_TEMP = 10
     this.powerSavingMode = true
     this.MAX_PSON_TEMP = 25
@@ -27,6 +28,10 @@ class Thermostat {
     }else{
       return this.MIN_TEMP
     }
+  }
+  
+  reset(){
+    this.temp = this.DEFAULT_TEMP
   }
 
   powerSavingOn(){
