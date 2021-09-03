@@ -81,5 +81,25 @@ describe('Thermostat', function(){
     });
 
   });
+  describe("Current Energy usage", function(){
+    it("checks if temperature is < 18 low usage", function(){
+      for(let i = 0; i<5; i++){
+         thermostat.down() 
+      }
+      expect(thermostat.currentUsage()).toEqual("Low-Usage")
+    });
+    it("checks if temperature is <=25 medium usage", function(){
+      expect(thermostat.currentUsage()).toEqual("Medium-Usage")
+    });
+    it("checks if temperature is >25 high usage", function(){
+      thermostat.powerSavingOff()
+      for(let i = 0; i<7; i++){
+        thermostat.up() 
+     }
+      expect(thermostat.currentUsage()).toEqual("High-Usage")
+    });
 
+  });
+  //You can ask about the thermostat's current energy usage: < 18 is low-usage,
+  // <= 25 is medium-usage, anything else is high-usage
 }); 

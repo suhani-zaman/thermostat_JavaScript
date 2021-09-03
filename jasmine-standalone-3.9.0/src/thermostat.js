@@ -45,5 +45,14 @@ class Thermostat {
   isPowerSaving(){
     return this.powerSavingMode
   }
-
+  currentUsage(){
+    if (this.temp < 18){
+      return "Low-Usage";
+    }
+    if (this.temp <= 25){
+      return "Medium-Usage";
+    }else{
+      return "High-Usage"
+    }
+  }
 }
